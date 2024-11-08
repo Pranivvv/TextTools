@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 export default function TextBox(props) {
 
-    const [text, setText] = useState('Enter Text here')
+    const [text, setText] = useState('')
 
     const toUpCase = ()=> {
         let newText = text.toUpperCase();
@@ -52,18 +52,18 @@ export default function TextBox(props) {
                 <h1>{props.heading}</h1>
                 <textarea className="form-control" id="exampleFormControlTextarea1" value={text} onChange={onChange} rows="12"></textarea>
                 </div>
-                <button className="btn btn-outline-success mx-2" onClick={toUpCase}>To Upper</button>
-                <button className="btn btn-outline-success mx-2" onClick={toLowCase}>To Lower</button>
-                <button className="btn btn-outline-success mx-2" onClick={clearText}>Clear Text</button>
-                <button className="btn btn-outline-success mx-2" onClick={copyText}>Copy Text</button>
-                <button className="btn btn-outline-success mx-2" onClick={copySelection}>Copy Selection</button>
-                <button className="btn btn-outline-success mx-2" onClick={removeSpaces}>Remove Extra Spaces</button>
+                <button disabled = {text.length===0} className="btn btn-outline-success mx-2 my-1" onClick={toUpCase}>To Upper</button>
+                <button disabled = {text.length===0} className="btn btn-outline-success mx-2 my-1" onClick={toLowCase}>To Lower</button>
+                <button disabled = {text.length===0} className="btn btn-outline-success mx-2 my-1" onClick={clearText}>Clear Text</button>
+                <button disabled = {text.length===0} className="btn btn-outline-success mx-2 my-1" onClick={copyText}>Copy Text</button>
+                <button disabled = {text.length===0} className="btn btn-outline-success mx-2 my-1" onClick={copySelection}>Copy Selection</button>
+                <button disabled = {text.length===0} className="btn btn-outline-success mx-2 my-1" onClick={removeSpaces}>Remove Extra Spaces</button>
             </div>
             <div className="container my-4" data-bs-theme={props.mode}>
                 <h2 className="summary">Text summary</h2>
-                <p>words : {text.trim().length===0 ? 0 : (text.trim().split(" ").length)} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Characters: {text.trim().length} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reading Time: {0.008 * text.trim().length===0 ? 0 : (text.trim().split(" ").length)} </p>
+                <p>words : {text.trim().length===0 ? 0 : (text.trim().split(/\s+/).length)} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Characters: {text.trim().length} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reading Time: {0.008 * (text.trim().length===0 ? 0 : (text.trim().split(/\s+/).length))} </p>
                 <h2>Prview</h2>
-                <p>{text}</p>
+                <p>{text.length===0 ? 'Nothing to preview':text}</p>
             </div>
         </div>
     )
