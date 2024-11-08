@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/TextTools/static/js/main.5c8bc5e3.js",
+    "static/js/453.bac61d45.chunk.js": "/TextTools/static/js/453.bac61d45.chunk.js",
+    "index.html": "/TextTools/index.html",
+    "main.5c8bc5e3.js.map": "/TextTools/static/js/main.5c8bc5e3.js.map",
+    "453.bac61d45.chunk.js.map": "/TextTools/static/js/453.bac61d45.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.5c8bc5e3.js"
+  ]
+}
